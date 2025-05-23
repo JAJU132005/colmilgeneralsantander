@@ -194,7 +194,7 @@
   }
   
   .santillana-logo img, .compartir-logo img {
-    height: 50px;
+    height: 80px;
     object-fit: contain;
   }
   
@@ -210,7 +210,7 @@
   }
   
   .cert-logo {
-    height: 50px;
+    height: 100px;
     width: auto;
     object-fit: contain;
   }
