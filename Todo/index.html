@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colegio Militar General Santander</title>
+  <link rel="stylesheet" href="./Todo/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <!-- Logo y nombre del colegio -->
+        <div class="logo-section">
+          <div class="logo-title">
+            <h1>Colegio Militar</h1>
+            <h2>General Santander</h2>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/colmilbuc/" class="social-icon">
+              <img src="./Todo/assets/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://tiktok.com" class="social-icon">
+              <img src="./Todo/assets/tiktok.png" alt="TikTok">
+            </a>
+            <a href="https://instagram.com" class="social-icon">
+              <img src="./Todo/assets/imstagram.png" alt="Instagram">
+            </a>
+          </div>
+        </div>
+
+        <!-- Navegación central -->
+        <nav class="main-nav">
+          <a href="/" class="nav-item active">Inicio</a>
+          <a href="/servicios" class="nav-item">Servicios</a>
+          <a href="/inscripciones" class="nav-item">Inscripciones</a>
+          <a href="/galeria" class="nav-item">Galería</a>
+          <a href="/nosotros" class="nav-item">Nosotros</a>
+          <a href="/contactos" class="nav-item">Contactos</a>
+          <a href="/phidias" class="nav-item">Phidias</a>
+        </nav>
+
+        <!-- Logos centrales -->
+        <div class="center-logos">
+          <div class="santillana-logo">
+            <img src="./Todo/assets/santillana_logo.png" alt="Santillana">
+          </div>
+          <div class="compartir-logo">
+            <img src="./Todo/assets/Wix.webp" alt="Compartir">
+          </div>
+        </div>
+
+        <!-- Certificaciones -->
+        <div class="certifications">
+          <img src="./Todo/assets/iqnet.png" alt="Certificación ICONTEC" class="cert-logo">
+          <img src="./Todo/assets/9001.png" alt="Certificación ISO 9001" class="cert-logo">
+          <img src="./Todo/assets/21001.png" alt="Certificación ISO 21001" class="cert-logo">
+        </div>
+
+        <!-- Botón de menú móvil -->
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <div class="mobile-nav">
+      <a href="/" class="mobile-nav-item active">Inicio</a>
+      <a href="/servicios" class="mobile-nav-item">Servicios</a>
+      <a href="/inscripciones" class="mobile-nav-item">Inscripciones</a>
+      <a href="/galeria" class="mobile-nav-item">Galería</a>
+      <a href="/nosotros" class="mobile-nav-item">Nosotros</a>
+      <a href="/contactos" class="mobile-nav-item">Contactos</a>
+      <a href="/phidias" class="mobile-nav-item">Phidias</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-slides">
+        <div class="hero-slide active">
+          <img src="./Todo/assets/slider/1.jpg" alt="Confianza, Disciplina Y Aprendizaje">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h2>Confianza, Disciplina Y Aprendizaje</h2>
+          </div>
+        </div>
+        <div class="hero-slide">
+          <img src="./Todo/assets/slider/2.jpg" alt="Formación Militar de Excelencia">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h2>Formación Militar de Excelencia</h2>
+            <p>Educación integral con valores y principios</p>
+          </div>
+        </div>
+        <div class="hero-slide">
+          <img src="./Todo/assets/slider/3.jpg" alt="Tradición y Prestigio">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h2>Tradición y Prestigio</h2>
+            <p>Formando líderes para Colombia</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="hero-nav prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="hero-nav next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <div class="hero-dots">
+        <button class="hero-dot active" data-index="0"></button>
+        <button class="hero-dot" data-index="1"></button>
+        <button class="hero-dot" data-index="2"></button>
+      </div>
+    </section>
+
+    <!-- Education Levels Section -->
+    <section class="education-levels">
+      <div class="container">
+        <div class="education-grid">
+          <div class="education-card preescolar">
+            <div class="education-content">
+              <div class="education-icon">
+                <i class="fas fa-pencil-alt"></i>
+              </div>
+              <h3>Preescolar</h3>
+              <div class="divider"></div>
+              <p>En esta etapa, los maestros desenvuelven su labor a partir de los intereses de los niños, delineando proyectos educativos que estimulen la curiosidad y el sentido de investigación de los pequeños.</p>
+            </div>
+          </div>
+
+          <div class="education-card primaria">
+            <div class="education-content">
+              <div class="education-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <h3>Primaria</h3>
+              <div class="divider"></div>
+              <p>El descubrimiento y reconocimiento del niño dentro de su entorno, sumado al progreso de las competencias académicas, físicas y éticas son la base fundamental de los años de primaria.</p>
+            </div>
+          </div>
+
+          <div class="education-card bachillerato">
+            <div class="education-content">
+              <div class="education-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3>Bachillerato</h3>
+              <div class="divider"></div>
+              <p>Formamos jóvenes, en dos programas diferentes, futuros militares de carrera y técnicos en disciplinas necesarias para las fuerzas militares.</p>
+            </div>
+          </div>
+
+          <div class="education-card sena">
+            <div class="education-content">
+              <div class="education-icon">
+                <i class="fas fa-check-square"></i>
+              </div>
+              <h3>SENA</h3>
+              <div class="divider"></div>
+              <p>Nuestro Bachillerato forma jóvenes con carácter, quienes además de la formación académica impartida, cursan el programa técnico en Sistemas con certificación SENA.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+      <div class="container">
+        <div class="section-header">
+          <h2>Noticias y Eventos</h2>
+          <p>Mantente informado sobre las actividades y logros de nuestra comunidad educativa.</p>
+        </div>
+
+        <div class="news-grid">
+          <div class="news-card">
+            <div class="news-image">
+              <img src="./Todo/assets/gallery/ceremonia.jpg" alt="Ceremonia de Graduación Promoción 2023">
+            </div>
+            <div class="news-header">
+              <div class="news-date">
+                <i class="far fa-calendar"></i>
+                <span>15 de diciembre, 2023</span>
+              </div>
+              <h3>Ceremonia de Graduación Promoción 2023</h3>
+            </div>
+            <div class="news-content">
+              <p>Con gran orgullo celebramos la graduación de nuestra promoción 2023, destacando los logros académicos y personales de nuestros estudiantes.</p>
+            </div>
+            <div class="news-footer">
+              <button class="btn btn-outline">Leer más</button>
+            </div>
+          </div>
+
+          <div class="news-card">
+            <div class="news-image">
+              <img src="placeholder.svg" alt="Competencia Intercolegial de Matemáticas">
+            </div>
+            <div class="news-header">
+              <div class="news-date">
+                <i class="far fa-calendar"></i>
+                <span>28 de octubre, 2023</span>
+              </div>
+              <h3>Competencia Intercolegial de Matemáticas</h3>
+            </div>
+            <div class="news-content">
+              <p>Nuestros estudiantes obtuvieron el primer lugar en la competencia intercolegial de matemáticas, demostrando su excelencia académica.</p>
+            </div>
+            <div class="news-footer">
+              <button class="btn btn-outline">Leer más</button>
+            </div>
+          </div>
+
+          <div class="news-card">
+            <div class="news-image">
+              <img src="placeholder.svg" alt="Jornada de Puertas Abiertas para Admisiones 2024">
+            </div>
+            <div class="news-header">
+              <div class="news-date">
+                <i class="far fa-calendar"></i>
+                <span>10 de septiembre, 2023</span>
+              </div>
+              <h3>Jornada de Puertas Abiertas para Admisiones 2024</h3>
+            </div>
+            <div class="news-content">
+              <p>Invitamos a las familias interesadas a conocer nuestras instalaciones y propuesta educativa para el próximo año escolar.</p>
+            </div>
+            <div class="news-footer">
+              <button class="btn btn-outline">Leer más</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-footer">
+          <button class="btn btn-primary">Ver todas las noticias</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+      <div class="container">
+        <div class="section-header">
+          <h2>Galería</h2>
+          <p>Conoce nuestras instalaciones y actividades a través de nuestra galería de imágenes.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item" data-id="1">
+            <img src="placeholder.svg" alt="Formación militar de estudiantes">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <p>Formación militar de estudiantes</p>
+                <span>Formación</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-id="2">
+            <img src="placeholder.svg" alt="Actividades deportivas">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <p>Actividades deportivas</p>
+                <span>Deportes</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-id="3">
+            <img src="placeholder.svg" alt="Laboratorio de ciencias">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <p>Laboratorio de ciencias</p>
+                <span>Académico</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-id="4">
+            <img src="placeholder.svg" alt="Ceremonia de banderas">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <p>Ceremonia de banderas</p>
+                <span>Ceremonias</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-id="5">
+            <img src="placeholder.svg" alt="Actividades culturales">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <p>Actividades culturales</p>
+                <span>Cultura</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-id="6">
+            <img src="placeholder.svg" alt="Instalaciones del colegio">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <p>Instalaciones del colegio</p>
+                <span>Instalaciones</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-footer">
+          <button class="btn btn-primary">Ver galería completa</button>
+        </div>
+      </div>
+
+      <!-- Lightbox -->
+      <div class="lightbox">
+        <button class="lightbox-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="lightbox-content">
+          <img src="/placeholder.svg" alt="" class="lightbox-image">
+        </div>
+        <div class="lightbox-caption">
+          <p class="lightbox-title"></p>
+          <p class="lightbox-category"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="placeholder.svg" alt="Logo Colegio Militar General Santander">
+            <div>
+              <h3>Colegio Militar</h3>
+              <p>General Santander</p>
+            </div>
+          </div>
+          <p>Formando líderes con excelencia académica, valores y disciplina militar desde 1980.</p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-link">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="footer-social-link">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="footer-social-link">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/inscripciones">Inscripciones</a></li>
+            <li><a href="/galeria">Galería</a></li>
+            <li><a href="/nosotros">Nosotros</a></li>
+            <li><a href="/contactos">Contactos</a></li>
+            <li><a href="/phidias">Phidias</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Información</h3>
+          <ul class="footer-links">
+            <li><a href="/calendario">Calendario Académico</a></li>
+            <li><a href="/horarios">Horarios de Atención</a></li>
+            <li><a href="/uniformes">Uniformes</a></li>
+            <li><a href="/manual-convivencia">Manual de Convivencia</a></li>
+            <li><a href="/circulares">Circulares</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contacto</h3>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Calle 123 # 45-67, Bogotá, Colombia</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>(601) 123-4567</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@colmilgeneralsantander.edu.co</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Colegio Militar General Santander. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chatbot -->
+  <div class="chatbot-container">
+    <button class="chatbot-toggle" id="chatbot-toggle">
+      <img src="https://colmilgeneralsantander.edu.co/images/icon2023.png" alt="Brigadier CMGS" style="width: 40px; height: 40px;">
+    </button>
+    
+    <div class="chatbot-popup" id="chatbot-popup">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="chatbot-info">
+          <h3>ColegioBot</h3>
+          <span class="chatbot-status">En línea</span>
+        </div>
+        <button class="chatbot-close" id="chatbot-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chatbot-message bot-message">
+          <div class="message-avatar">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="message-content">
+            <p>¡Saludo militar, cadete! 🎖️ Soy el Brigadier Virtual del Colegio Militar General Santander. Con 59 años de tradición educativa, estoy aquí para asistirte con información sobre nuestros procesos de admisión, formación académica y disciplinaria. ¿En qué puedo servirte hoy?</p>
+            <span class="message-time">Ahora</span>
+          </div>
+        </div>
+        
+        <div class="chatbot-suggestions">
+          <button class="suggestion-btn" data-message="Inscripción">
+            📝 Admisiones
+          </button>
+          <button class="suggestion-btn" data-message="Horarios">
+            ⏰ Horarios
+          </button>
+          <button class="suggestion-btn" data-message="Contacto">
+            📞 Contacto
+          </button>
+          <button class="suggestion-btn" data-message="Formacion Militar">
+            🎖️ Formación Militar
+          </button>
+        </div>
+      </div>
+      
+      <div class="chatbot-input-container">
+        <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Escribe tu mensaje aquí...">
+        <button class="chatbot-send" id="chatbot-send">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./Todo/script.js"></script>
+</body>
+</html>
