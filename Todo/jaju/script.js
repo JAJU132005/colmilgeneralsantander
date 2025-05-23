@@ -1,24 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Set current year in footer
+    // Establecer año actual en el footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
-  
-    // Mobile menu toggle
+
+    // Toggle del menú móvil
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileNav = document.querySelector('.mobile-nav');
-  
+
     mobileMenuBtn.addEventListener('click', function() {
         mobileNav.classList.toggle('active');
         const icon = mobileMenuBtn.querySelector('i');
-        if (mobileNav.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
+        icon.classList.toggle('fa-times');
+        icon.classList.toggle('fa-bars');
     });
-  
-    // Chatbot functionality
+
+    // Funcionalidad del Chatbot
     const chatbotToggle = document.getElementById('chatbot-toggle');
     const chatbotPopup = document.getElementById('chatbot-popup');
     const chatbotClose = document.getElementById('chatbot-close');
@@ -27,42 +22,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatbotMessages = document.getElementById('chatbot-messages');
     const suggestionBtns = document.querySelectorAll('.suggestion-btn');
 
-    // Predefined responses with full knowledge info for admisiones, horarios, contacto, formacion militar
+    // Mostrar chatbot automáticamente al cargar
+    setTimeout(() => chatbotPopup.classList.add('active'), 1000);
+
+    // Respuestas predefinidas
     const botResponses = {
         admisiones: {
-            message: `🎖️ *PROCESO DE ADMISIONES 2025*\n\nEl Colegio Militar General Santander ofrece cupos para:\n- Preescolar: Jardín y Transición\n- Básica Primaria: 1° a 5° grado\n- Básica Secundaria: 6° a 9° grado\n- Media Vocacional: 10° y 11° grado\n\n*Requisitos fundamentales:*\n- Registro civil de nacimiento (original)\n- Fotocopia de cédula de los padres\n- Certificados académicos de años anteriores\n- Examen médico general y factor RH\n- Entrevista psicológica obligatoria\n- Carpeta azul tamaño oficio con gancho\n\n*Proceso militar:*\n1. Entrega de documentación en Secretaría Académica\n2. Revisión y verificación de requisitos\n3. Citación a entrevista familiar\n4. Evaluación de perfil militar del aspirante\n5. Proceso de inducción y compromiso disciplinario\n\n*Fechas importantes 2025:*\nLas inscripciones están abiertas. Los aspirantes serán citados conforme entreguen y se verifique la documentación.\n\n⚠️ Estos requerimientos aplican tanto para cadetes nuevos como antiguos.`,
-            suggestions: ['Más información sobre requisitos', 'Proceso de entrevista', 'Horarios de atención']
+            message: `🎖️ *PROCESO DE ADMISIONES 2025*\n\nRequisitos:\n- Registro civil\n- Fotocopia de cédula de padres\n- Certificados académicos\n- Examen médico\n- Entrevista psicológica\n\n*Proceso militar:*\n1. Entrega documentación\n2. Revisión\n3. Entrevista familiar\n4. Evaluación de perfil\n5. Inducción`,
+            suggestions: ['Más información', 'Proceso entrevista', 'Horarios']
         },
         horarios: {
-            message: `⏰ *HORARIOS DEL COLEGIO MILITAR GENERAL SANTANDER*\n\n- Lunes a Viernes: 6:30am - 3:30pm\n- Atención Secretaría Académica: 7:00am - 2:00pm\n- Biblioteca: 7:00am - 3:00pm\n- Actividades deportivas y culturales: Después de clases\n- Atención telefónica: 7:00am - 4:00pm\n\nSe recomienda puntualidad y respeto a los horarios para la formación integral y disciplina.`,
-            suggestions: ['Horario Secretaría', 'Actividades extracurriculares', 'Días festivos']
+            message: `⏰ *HORARIOS*\n\n- Lunes a Viernes: 6:30am - 3:30pm\n- Secretaría: 7:00am - 2:00pm\n- Biblioteca: 7:00am - 3:00pm\n- Teléfono: 7:00am - 4:00pm`,
+            suggestions: ['Secretaría', 'Actividades', 'Festivos']
         },
         contacto: {
-            message: `📞 *CONTACTO DEL COLEGIO MILITAR GENERAL SANTANDER*\n\n*Dirección:*\nDiagonal 32 #30a-05, Salida a Pamplona, Bucaramanga, Santander, Colombia\n\n*Teléfonos:*\n- Principal: (607) 7008460\n- Secretaría Académica: Ext. 2006\n- Celular/WhatsApp: +57 301 718 9949\n\n*Correos electrónicos:*\n- General: info@colmilgeneralsantander.edu.co\n- Admisiones: secretaria@colmilgeneralsantander.edu.co\n- Rectoría: rectoria@colmilgeneralsantander.edu.co\n\n*Directivos:*\n- Rector: Mayor William Parada Gómez\n- Coordinador de Convivencia: Disponible en horario escolar\n- Coordinadora Académica: Disponible en horario escolar\n- Secretario Académico: Atención directa\n\n*Redes Sociales:*\n- Facebook: Colegio Militar General Santander\n- Instagram: @colmilgeneralsantander\n- Sitio web: colmilgeneralsantander.edu.co\n\n*Transporte escolar:* Rutas cubren sectores de Bucaramanga.`,
-            suggestions: ['Horario atención', 'Rutas transporte', 'Consultas específicas']
+            message: `📞 *CONTACTO*\n\nDirección: Diagonal 32 #30a-05, Bucaramanga\nTel: (607) 7008460\nWhatsApp: +57 301 718 9949\nCorreos:\n- info@colmilgeneralsantander.edu.co\n- secretaria@...`,
+            suggestions: ['Horario atención', 'Rutas', 'Consultas']
         },
         formacionMilitar: {
-            message: `⚔️ *FORMACIÓN MILITAR EN EL COLEGIO MILITAR GENERAL SANTANDER*\n\n- Formación integral que combina excelencia académica con disciplina militar.\n- Entrenamientos diarios y formación en valores patrios.\n- Desarrollo de liderazgo, hábitos de orden, respeto y compromiso.\n- Actividades que fomentan la preparación física y aptitud militar para jóvenes.\n- Preparación para el ingreso a las fuerzas militares o vocación profesional.\n\nLa formación militar es un pilar fundamental que distingue a nuestros estudiantes y contribuye a su desarrollo personal y educativo.`,
-            suggestions: ['Más detalles de formación', 'Actividades militares', 'Requisitos especiales']
+            message: `⚔️ *FORMACIÓN MILITAR*\n\n- Entrenamientos diarios\n- Desarrollo de liderazgo\n- Preparación física\n- Valores y disciplina`,
+            suggestions: ['Actividades', 'Requisitos', 'Detalles']
+        },
+        PQR: {
+            message: `📄 *PQR*\n\n1. Solicitud escrita\n2. Formato oficial\n3. Documentos soporte\n4. Respuesta en 5 días\n📧 pqrs@colmilgeneralsantander.edu.co`,
+            suggestions: ['Formatos', 'Tiempos', 'Seguimiento']
+        },
+        FAQ: {
+            message: `❓ *FAQ*\n\n1. Horario: 7am-4pm\n2. Transporte: Sí\n3. Becas: Militares\n4. Phidias: Plataforma académica`,
+            suggestions: ['Becas', 'Transporte', 'Phidias']
+        },
+        Certificados: {
+            message: `📜 *CERTIFICADOS*\n\nTipos:\n- Estudios\n- Conducta\n- Graduación\n⏳ Proceso: 3 días\n⏰ Retiro: 8am-12pm`,
+            suggestions: ['Costos', 'Digital', 'Autorizaciones']
         },
         default: {
-            message: "Gracias por comunicarte con el Colegio Militar General Santander. ¿En qué puedo ayudarte? Puedes consultar sobre admisiones, horarios, contacto o formación militar.",
-            suggestions: ['Admisiones', 'Horarios', 'Contacto', 'Formación militar']
+            message: "¿En qué puedo ayudarte? Opciones: Admisiones, Horarios, Contacto, Formación militar, PQR, FAQ, Certificados",
+            suggestions: ['Admisiones', 'Horarios', 'Contacto', 'Formación militar', 'PQR', 'FAQ', 'Certificados']
         }
     };
 
     function getCurrentTime() {
-        const now = new Date();
-        return now.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' });
+        return new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' });
     }
 
-    function addMessage(content, isUser  = false, showSuggestions = false, suggestions = []) {
+    function addMessage(content, isUser = false, showSuggestions = false, suggestions = []) {
         const messageDiv = document.createElement('div');
-        messageDiv.className = `chatbot-message ${isUser  ? 'user-message' : 'bot-message'}`;
+        messageDiv.className = `chatbot-message ${isUser ? 'user-message' : 'bot-message'}`;
         
         messageDiv.innerHTML = `
             <div class="message-avatar">
-                <i class="fas fa-${isUser  ? 'user' : 'graduation-cap'}"></i>
+                <i class="fas fa-${isUser ? 'user' : 'graduation-cap'}"></i>
             </div>
             <div class="message-content">
                 <p>${content.replace(/\n/g, '<br>')}</p>
@@ -80,9 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const btn = document.createElement('button');
                 btn.className = 'suggestion-btn';
                 btn.textContent = suggestion;
-                btn.addEventListener('click', () => {
-                    handleSuggestionClick(suggestion);
-                });
+                btn.addEventListener('click', () => handleSuggestionClick(suggestion));
                 suggestionsDiv.appendChild(btn);
             });
 
@@ -108,36 +115,28 @@ document.addEventListener('DOMContentLoaded', function() {
         
         chatbotMessages.appendChild(typingDiv);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        
         return typingDiv;
     }
 
     function removeTypingIndicator() {
         const typingMessage = document.querySelector('.typing-message');
-        if (typingMessage) {
-            typingMessage.remove();
-        }
+        if (typingMessage) typingMessage.remove();
     }
 
     function getBotResponse(userMessage) {
         const message = userMessage.toLowerCase();
-        
-        if (message.includes('admisiones') || message.includes('inscripción') || message.includes('matricula') || message.includes('admision')) {
-            return botResponses.admisiones;
-        } else if (message.includes('horario')) {
-            return botResponses.horarios;
-        } else if (message.includes('contacto') || message.includes('telefono') || message.includes('direccion') || message.includes('correo')) {
-            return botResponses.contacto;
-        } else if (message.includes('formación militar') || message.includes('militar')) {
-            return botResponses.formacionMilitar;
-        } else {
-            return botResponses.default;
-        }
+        if (message.includes('admisiones')) return botResponses.admisiones;
+        if (message.includes('horario')) return botResponses.horarios;
+        if (message.includes('contacto')) return botResponses.contacto;
+        if (message.includes('formación militar')) return botResponses.formacionMilitar;
+        if (message.includes('pqr')) return botResponses.PQR;
+        if (message.includes('faq')) return botResponses.FAQ;
+        if (message.includes('certificado')) return botResponses.Certificados;
+        return botResponses.default;
     }
 
     function handleSuggestionClick(suggestion) {
         addMessage(suggestion, true);
-        
         const typingIndicator = showTypingIndicator();
         
         setTimeout(() => {
@@ -151,14 +150,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const message = chatbotInput.value.trim();
         if (!message) return;
 
-        // Add user message
         addMessage(message, true);
         chatbotInput.value = '';
 
-        // Show typing indicator
         const typingIndicator = showTypingIndicator();
-
-        // Bot response after delay
         setTimeout(() => {
             removeTypingIndicator();
             const response = getBotResponse(message);
@@ -166,38 +161,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000 + Math.random() * 1000);
     }
 
-    // Event listeners
+    // Event Listeners
     chatbotToggle.addEventListener('click', () => {
         chatbotPopup.classList.toggle('active');
-    });
-
-    chatbotClose.addEventListener('click', () => {
-        chatbotPopup.classList.remove('active');
-    });
-
-    chatbotSend.addEventListener('click', sendMessage);
-
-    chatbotInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
+        if (!chatbotPopup.classList.contains('active')) {
+            setTimeout(() => chatbotMessages.scrollTop = chatbotMessages.scrollHeight, 300);
         }
     });
+    
+    chatbotClose.addEventListener('click', () => chatbotPopup.classList.remove('active'));
+    chatbotSend.addEventListener('click', sendMessage);
+    chatbotInput.addEventListener('keypress', (e) => e.key === 'Enter' && sendMessage());
 
-    // Handle initial suggestion buttons
     suggestionBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const message = btn.getAttribute('data-message');
-            handleSuggestionClick(message);
-            
-            // Hide initial suggestions
-            const suggestionsContainer = document.querySelector('.chatbot-suggestions');
-            if (suggestionsContainer) {
-                suggestionsContainer.style.display = 'none';
-            }
+            handleSuggestionClick(btn.dataset.message);
+            document.querySelector('.chatbot-suggestions').style.display = 'none';
         });
     });
 
-    // Close chatbot when clicking outside
     document.addEventListener('click', (e) => {
         if (!chatbotPopup.contains(e.target) && !chatbotToggle.contains(e.target)) {
             chatbotPopup.classList.remove('active');
